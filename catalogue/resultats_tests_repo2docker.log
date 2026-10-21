@@ -1,0 +1,248 @@
+Activating profile: /srv/conda/etc/profile.d/conda.sh
+/srv/conda/envs/notebook/lib/python3.10/subprocess.py:961: RuntimeWarning: line buffering (buffering=1) isn't supported in binary mode, the default buffer size will be used
+  self.stdout = io.open(c2pread, 'rb', bufsize)
+
+==== 01_rapports_documents : Rapports, documents et widgets HTML ====
+rmarkdown                            2.32         OK                  0.5s  
+knitr                                1.52         OK                  0.2s  
+quarto                               1.5.1        OK                  0.5s  
+tinytex                              0.60         OK                  0.2s  
+bookdown                             0.47         OK                  0.3s  
+flexdashboard                        0.6.3        OK                  0.3s  
+htmltools                            0.5.9        OK                  0.2s  
+htmlwidgets                          1.6.4        OK                  0.2s  
+DT                                   0.34.0       OK                  0.3s  
+
+Résumé 01_rapports_documents : OK = 9 
+
+==== 02_import_manipulation_donnees : Import, export et manipulation de données (tidyverse & co) ====
+tibble                               3.3.1        OK                  0.5s  
+dplyr                                1.2.1        OK                  0.4s  
+tidyr                                1.3.2        OK                  0.4s  
+purrr                                1.2.2        OK                  0.3s  
+stringr                              1.6.0        OK                  0.3s  
+forcats                              1.0.1        OK                  0.3s  
+lubridate                            1.9.5        OK                  0.3s  
+clock                                0.7.4        OK                  0.4s  
+warp                                 0.2.3        OK                  0.2s  
+slider                               0.3.3        OK                  0.3s  
+readr                                2.2.0        OK                  0.5s  
+readxl                               1.6.0        OK                  0.4s  
+writexl                              2.0.1        OK                  0.2s  
+haven                                2.5.5        OK                  0.4s  
+jsonlite                             2.0.0        OK                  0.2s  
+RSQLite                              3.53.3       OK                  0.6s  
+rvest                                1.0.5        OK                  0.3s  
+httr                                 1.4.9        OK                  0.2s  
+
+Résumé 02_import_manipulation_donnees : OK = 18 
+
+==== 03_visualisation : Visualisation ====
+ggplot2                              4.0.3        OK                  1.1s  
+patchwork                            1.3.2        OK                  0.8s  
+ggrepel                              0.9.8        OK                  1.1s  
+ggtext                               0.2.0        OK                  0.8s  
+ggfortify                            0.4.24       OK                  0.9s  
+Registered S3 methods overwritten by 'ggpp':
+  method                  from   
+  heightDetails.titleGrob ggplot2
+  widthDetails.titleGrob  ggplot2
+ggpmisc                              1.0.0        OK                  2.3s  
+ggpubr                               1.0.0        OK                  1.4s  
+plotly                               4.12.1       OK                  0.8s  
+gplots                               3.3.0        OK                  0.3s  
+RColorBrewer                         1.1.3        OK                  0.1s  
+corrplot                             0.95         OK                  0.2s  
+pheatmap                             1.0.13       OK                  0.4s  
+ComplexHeatmap                       2.26.1       OK                  2.7s  
+EnhancedVolcano                      1.28.2       OK                  1.0s  
+
+Résumé 03_visualisation : OK = 14 
+
+==== 04_statistiques_modelisation : Statistiques et modélisation ====
+FactoMineR                           2.17         OK                  1.4s  
+factoextra                           2.2.0        OK                  1.6s  
+statmod                              1.5.2        OK                  0.2s  
+pwr                                  1.3.0        OK                  0.2s  
+ppcor                                1.1          OK                  0.2s  
+mvtnorm                              1.4.2        OK                  0.2s  
+KernSmooth                           2.23.26      OK                  0.2s  
+lmtest                               0.9.40       OK                  0.2s  
+quantreg                             6.1          OK                  0.9s  
+survival                             3.8.12       OK                  0.7s  
+prodlim                              2026.3.11    OK                  1.4s  
+Registered S3 method overwritten by 'lme4':
+  method           from
+  na.action.merMod car 
+lme4                                 2.0.6        OK                  1.2s  
+nloptr                               2.2.1        OK                  0.2s  
+minqa                                1.2.8        OK                  0.2s  
+SparseM                              1.84.2       OK                  0.2s  
+DiceDesign                           1.10         OK                  0.2s  
+Registered S3 methods overwritten by 'forecast':
+  method                 from     
+  autoplot.Arima         ggfortify
+  autoplot.acf           ggfortify
+  autoplot.ar            ggfortify
+  autoplot.bats          ggfortify
+  autoplot.decomposed.ts ggfortify
+  autoplot.ets           ggfortify
+  autoplot.forecast      ggfortify
+  autoplot.stl           ggfortify
+  autoplot.ts            ggfortify
+  fitted.ar              ggfortify
+  fortify.ts             ggfortify
+  residuals.ar           ggfortify
+forecast                             9.0.2        OK                  1.7s  
+fracdiff                             1.5.4        OK                  0.2s  
+urca                                 1.3.4        OK                  0.3s  
+igraph                               2.3.3        OK                  0.3s  
+
+Résumé 04_statistiques_modelisation : OK = 20 
+
+==== 05_machine_learning : Apprentissage automatique ====
+randomForest                         4.7.1.2      OK                  0.2s  
+ranger                               0.18.0       OK                  0.7s  
+glmnet                               5.0          OK                  0.7s  
+nnet                                 7.3.21       OK                  0.2s  
+ipred                                0.9.15       OK                  0.9s  
+sparsevctrs                          0.3.6        OK                  0.3s  
+yardstick                            1.4.0        OK                  1.6s  
+Registered S3 method overwritten by 'parsnip':
+  method          from     
+  autoplot.glmnet ggfortify
+tidymodels                           1.4.1        OK                  2.5s  
+
+Résumé 05_machine_learning : OK = 8 
+
+==== 06_infrastructure_systeme : Infrastructure, code compilé et système ====
+Rcpp                                 1.1.2        OK                  1.4s  
+RcppArmadillo                        15.6.2.1     OK                  0.2s  
+Registered S3 methods overwritten by 'RcppEigen':
+  method               from         
+  predict.fastLm       RcppArmadillo
+  print.fastLm         RcppArmadillo
+  summary.fastLm       RcppArmadillo
+  print.summary.fastLm RcppArmadillo
+RcppEigen                            0.3.4.0.2    OK                  0.2s  
+backports                            1.5.1        OK                  0.2s  
+gtools                               3.9.5        OK                  0.2s  
+rbibutils                            2.4.1        OK                  0.2s  
+openssl                              2.4.2        OK                  0.2s  
+httpuv                               1.6.17       OK                  0.3s  
+processx                             3.9.0        OK                  0.2s  
+
+Résumé 06_infrastructure_systeme : OK = 9 
+
+==== 07_bioc_infrastructure_annotation : Bioconductor : infrastructure et annotations ====
+BiocGenerics                         0.56.0       OK                  0.3s  
+S4Vectors                            0.48.1       OK                  0.6s  
+IRanges                              2.44.0       OK                  0.9s  
+GenomicRanges                        1.62.1       OK                  1.4s  
+Biostrings                           2.78.0       OK                  1.7s  
+Biobase                              2.70.0       OK                  1.1s  
+SummarizedExperiment                 1.40.0       OK                  5.1s  
+AnnotationDbi                        1.72.0       OK                  2.6s  
+
+org.Hs.eg.db                         3.22.0       OK                  2.2s  
+
+org.Mm.eg.db                         3.22.0       OK                  2.0s  
+
+GO.db                                3.22.0       OK                  1.9s  
+TxDb.Hsapiens.UCSC.hg38.knownGene    3.22.0       OK                 10.7s  
+TxDb.Mmusculus.UCSC.mm10.knownGene   3.10.0       OK                  6.9s  
+EnsDb.Hsapiens.v86                   2.99.0       OK                  8.2s  
+GenomicFeatures                      1.62.0       OK                 10.5s  
+rtracklayer                          1.70.1       OK                  5.2s  
+Rsamtools                            2.26.0       OK                  1.8s  
+biomaRt                              2.66.2       ECHEC (réseau ?)    5.5s  Unable to contact any Ensembl mirror [nécessite accès aux serveurs Ensembl]
+
+Résumé 07_bioc_infrastructure_annotation : ECHEC (réseau ?) = 1 ; OK = 17 
+
+==== 08_bioc_rnaseq_enrichissement : Bioconductor : RNA-seq, analyse différentielle et enrichissement ====
+tximport                             1.38.2       OK                  0.5s  
+DESeq2                               1.50.2       OK                  5.7s  
+edgeR                                4.8.2        OK                  0.5s  
+limma                                3.66.0       OK                  0.3s  
+clusterProfiler                      4.18.4       OK                  6.1s  
+fgsea                                1.36.2       OK                  4.0s  
+
+Résumé 08_bioc_rnaseq_enrichissement : OK = 6 
+
+==== 09_single_cell : Single-cell ====
+SingleCellExperiment                 1.32.0       OK                  4.7s  
+scuttle                              1.20.0       OK                  5.6s  
+scater                               1.38.1       OK                  7.5s  
+scran                                1.38.1       OK                  5.3s  
+celldex                              1.20.0       OK                  7.2s  
+SingleR                              2.12.0       OK                  5.2s  
+Registered S3 method overwritten by 'spatstat.geom':
+  method       from     
+  print.metric yardstick
+Seurat                               5.5.1        OK                  4.6s  
+iSEE                                 2.22.0       OK                  5.7s  
+
+Résumé 09_single_cell : OK = 8 
+
+==== 10_epigenomique_tracks : Épigénomique (ChIP/ATAC-seq) et visualisation de tracks génomiques ====
+csaw                                 1.44.0       OK                  4.8s  
+DiffBind                             3.20.0       OK                 11.3s  
+ChIPseeker                           1.46.1       OK                  8.4s  
+ATACseqQC                            1.34.0       OK                 14.1s  
+Gviz                                 1.54.0       OK                 17.9s  
+ggbio                                1.58.0       OK                 14.1s  
+
+Résumé 10_epigenomique_tracks : OK = 6 
+
+==== 11_genetique_variants : Génétique : variants, GWAS et génétique des populations ====
+VariantAnnotation                    1.56.0       OK                  7.6s  
+VariantFiltering                     1.46.0       OK                 11.6s  
+ensemblVEP                           -            NON INSTALLABLE     0.0s  retiré de Bioconductor 3.20 ; bioconda 1.44.0 exige R < 4.4
+qqman                                0.1.9        OK                  0.3s  
+Registered S3 method overwritten by 'vegan':
+  method          from   
+  print.nullmodel parsnip
+Registered S3 method overwritten by 'pegas':
+  method      from
+  print.amova ade4
+poppr                                2.9.8        OK                  3.2s  
+rehh                                 3.2.3        OK                  0.6s  
+
+Résumé 11_genetique_variants : NON INSTALLABLE = 1 ; OK = 5 
+
+==== 12_microbiome : Microbiome ====
+dada2                                1.38.0       OK                  6.6s  
+biomformat                           1.38.3       OK                  0.8s  
+Found more than one class "dist" in cache; using the first, from namespace 'BiocGenerics'
+Also defined by 'spam'
+phyloseq                             1.54.2       OK                  3.3s  
+microbiome                           1.32.0       OK                  3.4s  
+
+Résumé 12_microbiome : OK = 4 
+
+================ RÉSUMÉ GLOBAL ================
+                                   
+                                    ECHEC (réseau ?) NON INSTALLABLE OK
+  01_rapports_documents                            0               0  9
+  02_import_manipulation_donnees                   0               0 18
+  03_visualisation                                 0               0 14
+  04_statistiques_modelisation                     0               0 20
+  05_machine_learning                              0               0  8
+  06_infrastructure_systeme                        0               0  9
+  07_bioc_infrastructure_annotation                1               0 17
+  08_bioc_rnaseq_enrichissement                    0               0  6
+  09_single_cell                                   0               0  8
+  10_epigenomique_tracks                           0               0  6
+  11_genetique_variants                            0               1  5
+  12_microbiome                                    0               0  4
+
+Paquets non OK :
+                            groupe     paquet version           statut
+ 07_bioc_infrastructure_annotation    biomaRt  2.66.2 ECHEC (réseau ?)
+             11_genetique_variants ensemblVEP    <NA>  NON INSTALLABLE
+                                                                     message
+ Unable to contact any Ensembl mirror [nécessite accès aux serveurs Ensembl]
+                 retiré de Bioconductor 3.20 ; bioconda 1.44.0 exige R < 4.4
+
+Résultats écrits dans /home/jovyan/resultats_tests_R.csv 
+EXIT=0

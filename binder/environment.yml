@@ -1,0 +1,224 @@
+name: MEG-M1-A2B-2026-catalogueR
+# Environnement « catalogue R » : MEG-M1-A2B-2026 (CVandiedonck/MEG-M1-A2B, binder/) + tous les paquets
+# du catalogue PaquetsR-packaging-CataloguePaquetsR.
+# Principe de fiabilité : TOUS les paquets R/Bioconductor viennent de conda (conda-forge + bioconda),
+# aucun BiocManager::install() dans postBuild (évite les compilations source et le mélange de binaires
+# conda / compilés localement : conflits libdeflate/htslib, ABI Rcpp, versions Bioc incohérentes).
+# Seuls swirl et rehh (absents de conda) sont installés depuis CRAN par postBuild.
+# r-base épinglé en 4.5 : les paquets Bioconductor de bioconda sont construits pour R 4.5 (Bioc 3.22).
+# ensemblVEP exclu : retiré de Bioconductor 3.20, bioconda 1.44.0 exige R < 4.4.
+# Tests : tests_R/run_all.R (scripts groupés par usage, mêmes groupes que ci-dessous)
+# 21/10/2026
+
+channels:
+  - conda-forge
+  - bioconda
+  - nodefaults
+
+dependencies:
+  # Jupyter dependencies
+  - jupyterhub>=4.1,<5
+  - jupyterlab>=4.0,<5
+  - notebook>=7,<8
+  - jupyter_server>=2,<3
+  - jupyter-server-proxy>=4.1,<4.2
+  - jupyter-resource-usage
+  - jupyterlab-topbar-text    # affiche le nom de l'environnement à droite dans la topbar
+  - nodejs
+  - nbresuse
+  - libgomp
+
+  # Jupyter archive
+  # https://github.com/jupyterlab-contrib/jupyter-archive
+  - jupyter-archive
+  # JupyterLab git
+  # https://github.com/jupyterlab/jupyterlab-git
+  - jupyterlab-git
+
+  # Bash environment
+  - bash_kernel
+
+  # RStudio proxy (nécessaire pour afficher RStudio dans JupyterLab)
+  - jupyter-rsession-proxy==2.3.0
+
+  # Python environment
+  - python=3.10
+  - pip
+  - pip:
+    - watermark
+
+  # For the M1 A2B course (unix part)
+  - fastqc
+  - multiqc
+  - fastp
+  - star
+  - salmon
+  - samtools
+  - qualimap
+  - subread
+
+  # R environment
+  - r-irkernel
+  - r-base=4.5
+  - r-essentials
+  - r-tidyverse
+  - r-markdown
+  - r-openxlsx
+  - r-rpart
+  - r-rpart.plot
+  - r-biocmanager                 # pour les installations ponctuelles (ex. TP R7) ; donne Bioc 3.22 avec R 4.5
+  - r-callr                       # utilisé par tests_R/ pour isoler chaque test
+  - quarto                        # CLI Quarto requise par r-quarto
+  - pandoc
+  - r-textshaping>=1.0.5          # 1.0.4 : avertissement « compiled with different versions of Freetype » avec r-systemfonts 1.3.2
+
+
+  # --- rapports_documents : Rapports, documents et widgets HTML
+  - r-rmarkdown
+  - r-knitr
+  - r-quarto
+  - r-tinytex
+  - r-bookdown
+  - r-flexdashboard
+  - r-htmltools
+  - r-htmlwidgets
+  - r-dt
+
+  # --- import_manipulation_donnees : Import, export et manipulation de données (tidyverse & co)
+  - r-tibble
+  - r-dplyr
+  - r-tidyr
+  - r-purrr
+  - r-stringr
+  - r-forcats
+  - r-lubridate
+  - r-clock
+  - r-warp
+  - r-slider
+  - r-readr
+  - r-readxl
+  - r-writexl
+  - r-haven
+  - r-jsonlite
+  - r-rsqlite
+  - r-rvest
+  - r-httr
+
+  # --- visualisation : Visualisation
+  - r-ggplot2
+  - r-patchwork
+  - r-ggrepel
+  - r-ggtext
+  - r-ggfortify
+  - r-ggpmisc
+  - r-ggpubr
+  - r-plotly
+  - r-gplots
+  - r-rcolorbrewer
+  - r-corrplot
+  - r-pheatmap
+  - bioconductor-complexheatmap
+  - bioconductor-enhancedvolcano
+
+  # --- statistiques_modelisation : Statistiques et modélisation
+  - r-factominer
+  - r-factoextra
+  - r-statmod
+  - r-pwr
+  - r-ppcor
+  - r-mvtnorm
+  - r-kernsmooth
+  - r-lmtest
+  - r-quantreg
+  - r-survival
+  - r-prodlim
+  - r-lme4
+  - r-nloptr
+  - r-minqa
+  - r-sparsem
+  - r-dicedesign
+  - r-forecast
+  - r-fracdiff
+  - r-urca
+  - r-igraph
+
+  # --- machine_learning : Apprentissage automatique
+  - r-randomforest
+  - r-ranger
+  - r-glmnet
+  - r-nnet
+  - r-ipred
+  - r-sparsevctrs
+  - r-yardstick
+  - r-tidymodels
+
+  # --- infrastructure_systeme : Infrastructure, code compilé et système
+  - r-rcpp
+  - r-rcpparmadillo
+  - r-rcppeigen
+  - r-backports
+  - r-gtools
+  - r-rbibutils
+  - r-openssl
+  - r-httpuv
+  - r-processx
+
+  # --- bioc_infrastructure_annotation : Bioconductor : infrastructure et annotations
+  - bioconductor-biocgenerics
+  - bioconductor-s4vectors
+  - bioconductor-iranges
+  - bioconductor-genomicranges
+  - bioconductor-biostrings
+  - bioconductor-biobase
+  - bioconductor-summarizedexperiment
+  - bioconductor-annotationdbi
+  - bioconductor-org.hs.eg.db
+  - bioconductor-org.mm.eg.db
+  - bioconductor-go.db
+  - bioconductor-txdb.hsapiens.ucsc.hg38.knowngene
+  - bioconductor-txdb.mmusculus.ucsc.mm10.knowngene
+  - bioconductor-ensdb.hsapiens.v86
+  - bioconductor-genomicfeatures
+  - bioconductor-rtracklayer
+  - bioconductor-rsamtools
+  - bioconductor-biomart
+
+  # --- bioc_rnaseq_enrichissement : Bioconductor : RNA-seq, analyse différentielle et enrichissement
+  - bioconductor-tximport
+  - bioconductor-deseq2
+  - bioconductor-edger
+  - bioconductor-limma
+  - bioconductor-clusterprofiler
+  - bioconductor-fgsea
+
+  # --- single_cell : Single-cell
+  - bioconductor-singlecellexperiment
+  - bioconductor-scuttle
+  - bioconductor-scater
+  - bioconductor-scran
+  - bioconductor-celldex
+  - bioconductor-singler
+  - r-seurat
+  - bioconductor-isee
+
+  # --- epigenomique_tracks : Épigénomique (ChIP/ATAC-seq) et visualisation de tracks génomiques
+  - bioconductor-csaw
+  - bioconductor-diffbind
+  - bioconductor-chipseeker
+  - bioconductor-atacseqqc
+  - bioconductor-gviz
+  - bioconductor-ggbio
+
+  # --- genetique_variants : Génétique : variants, GWAS et génétique des populations
+  - bioconductor-variantannotation
+  - bioconductor-variantfiltering
+  # - bioconductor-ensemblvep                      # NON INSTALLABLE (retiré de Bioc 3.20, bioconda exige R < 4.4)
+  - r-qqman
+  - r-poppr
+  # - r-rehh                                       # absent de conda : installé depuis CRAN par postBuild
+
+  # --- microbiome : Microbiome
+  - bioconductor-dada2
+  - bioconductor-biomformat
+  - bioconductor-phyloseq  # retirer si le TP R7 doit le faire installer par les étudiants
+  - bioconductor-microbiome

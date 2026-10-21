@@ -1,0 +1,25 @@
+vim
+nano
+gawk
+tree
+htop
+bc
+
+
+# new tools required for Ubuntu 24.04 et R compilation
+build-essential
+gfortran
+cmake
+pkg-config
+
+# Dépendances système générales
+libblas-dev
+liblapack-dev
+libgsl-dev
+
+# Compilation R packages
+libxt-dev
+libssl-dev
+libcurl4-openssl-dev
+libxml2-dev
+

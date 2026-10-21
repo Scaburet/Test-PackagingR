@@ -1,0 +1,38 @@
+#!/bin/bash
+set -e     # to avoid errors being silently ignored
+
+#-------- Gestion des kernels pour les notebooks ------------
+# Modification of configuration of the jupyter server to add the notebook environment's bin directory to PATH
+mkdir -p ~/.jupyter
+cat > ~/.jupyter/jupyter_server_config.py <<'PYEOF'
+import os
+os.environ["PATH"] = "/srv/conda/envs/notebook/bin:" + os.environ["PATH"]
+PYEOF
+
+#-------- R kernel and packages ------------
+# Gère le kernel R pour cet environnement
+R --quiet -e "IRkernel::installspec(prefix='/srv/conda/envs/notebook')" || true
+
+# 1 - Paquets CRAN absents de conda-forge (compilés avec les compilateurs conda installés avec r-base)
+#     install.packages() ne renvoie pas d'erreur en cas d'échec : on vérifie explicitement.
+Rscript -e "
+pk <- c('swirl', 'rehh')
+install.packages(pk, repos = 'https://cloud.r-project.org', Ncpus = 4)
+ok <- vapply(pk, requireNamespace, logical(1), quietly = TRUE)
+if (!all(ok)) stop('Installation échouée : ', paste(pk[!ok], collapse = ', '))
+"
+
+# 2 - Paquets Bioconductor : TOUS installés par conda (bioconda) dans environment.yml.
+#     Ne pas ajouter de BiocManager::install() ici : cela recompile depuis les sources et mélange
+#     des binaires conda et locaux (conflits libdeflate/htslib, ABI Rcpp).
+#     (ex. pour le TP R7 : phyloseq peut être retiré de environment.yml et installé par les étudiants)
+
+# 3 - Vérification rapide : tous les paquets du catalogue se chargent
+#     (les tests fonctionnels complets : Rscript tests_R/run_all.R)
+Rscript -e "
+pk <- c('rmarkdown','knitr','quarto','Rcpp','ggplot2','dplyr','DESeq2','clusterProfiler','org.Hs.eg.db',
+        'Seurat','SingleR','DiffBind','VariantAnnotation','phyloseq','dada2','rehh','swirl')
+ok <- vapply(pk, function(p) suppressPackageStartupMessages(requireNamespace(p, quietly = TRUE)), logical(1))
+print(ok)
+if (!all(ok)) stop('Paquets non chargeables : ', paste(pk[!ok], collapse = ', '))
+"
